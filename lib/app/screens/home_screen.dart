@@ -1,8 +1,9 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
+import 'package:get/get.dart';
 
+import '../components/menu_components.dart';
 import '../controllers/parking_spot_controller.dart';
+import 'edit_screen.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
@@ -23,19 +24,24 @@ class _MyHomePageState extends State<MyHomePage> {
     print(controller.listParkingSpot());
     // controller.listCurrecies();
   }
+
   void _incrementCounter() {
     setState(() {
 
       _counter  ;
     });
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-
           title: Text(widget.title),
         ),
+
+        drawer:
+        MenuComponent(context),
+
         body:
         Obx(() =>
         controller.isLoading.value
@@ -49,8 +55,31 @@ class _MyHomePageState extends State<MyHomePage> {
                 return
 
                   Card(
-                    child:
-                    Text(controller.listParkingSpotObs[index].responsibleName),
+                      child:
+                      Column(
+                        children: [
+                          ListTile(
+                            title: Text(controller.listParkingSpotObs[index].responsibleName),
+                            trailing: Wrap(
+                              spacing: 12, // space between two icons
+                              children: <Widget>[
+                                IconButton(
+                                  icon: const Icon(Icons.edit),
+                                  color: Colors.deepOrangeAccent,
+                                  onPressed: () {
+                                    Get.to(const EditScreen(title: "EDIT"));
+                                  },
+                                ),
+                                IconButton(
+                                  icon: const Icon(Icons.delete),
+                                  color: Colors.red,
+                                  onPressed: () {},
+                                ),
+                              ],
+                            ),
+                          )
+                        ],
+                      )
                   );
               }),
         )
