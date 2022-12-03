@@ -18,9 +18,9 @@ Widget MenuComponent(BuildContext context) {
         ),
         ListTile(
           title: const Text('HOME'),
-          leading: Icon(Icons.ice_skating),
+          leading: Icon(Icons.home),
           onTap: () {
-            Navigator.push(
+            Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(
                     builder: (context) => MyHomePage(title: 'HOME')));
@@ -28,32 +28,12 @@ Widget MenuComponent(BuildContext context) {
         ),
         ListTile(
           title: const Text('CREATE'),
-          leading: Icon(Icons.ice_skating),
+          leading: Icon(Icons.add),
           onTap: () {
             Navigator.push(
                 context,
                 MaterialPageRoute(
                     builder: (context) => CreateScreen(title: 'CREATE')));
-          },
-        ),
-        ListTile(
-          title: const Text('DETAIL'),
-          leading: Icon(Icons.ice_skating),
-          onTap: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => DetailScreen(title: 'DETAIL')));
-          },
-        ),
-        ListTile(
-          title: const Text('EDIT'),
-          leading: Icon(Icons.ice_skating),
-          onTap: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => EditScreen(title: 'EDIT')));
           },
         ),
       ],

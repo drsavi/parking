@@ -28,13 +28,21 @@ class ParkingSpotController extends GetxController {
     return list;
   }
 
-  // Future<dynamic> list(dynamic objeto)  async {
-  //   isLoading.value = true;
-  //   var list = await parkingSpotService.fetchPostGarage(objeto);
-  //   parkingSpotObs = list as Type;
-  //   isLoading.value = false;
-  //   update();
-  //   return listParkingSpotObs;
-  // }
+  Future<dynamic> edit(ParkingSpotModel objeto)  async {
+    isLoading.value = true;
+    var list = await parkingSpotService.fetchPostGarageEdit(objeto);
+    isLoading.value = false;
+    update();
+    return list;
+  }
+
+  Future<dynamic> delete(String id)  async {
+    isLoading.value = true;
+    var list = await parkingSpotService.fetchGarageDelete(id);
+    isLoading.value = false;
+    update();
+    return list;
+  }
+
 
 }

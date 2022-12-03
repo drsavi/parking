@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
 
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Parking - Home'),
+      home: const MyHomePage(title: 'Welcome to Parking Spot App'),
     );
   }
 }
